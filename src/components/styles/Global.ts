@@ -1,8 +1,9 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
+
   :root {
-    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-family: Roboto, serif;
     line-height: 1.5;
     font-weight: 400;
     color-scheme: light dark;
@@ -23,6 +24,12 @@ const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.text};
     min-width: 375px;
     min-height: 100vh;
+  }
+
+  h1 {
+    font-family: "Merryweather", serif;
+    font-style: normal;
+    font-weight: 400;
   }
 
   a {
