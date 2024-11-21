@@ -38,6 +38,10 @@ const GlobalStyles = createGlobalStyle`
     text-decoration: inherit;
   }
 
+  a:hover {
+    color: #d73200;
+  }
+
   button {
     border-radius: 8px;
     border: 1px solid transparent;
@@ -48,6 +52,15 @@ const GlobalStyles = createGlobalStyle`
     background-color: #ff3d00;
     cursor: pointer;
     transition: border-color 0.25s;
+  }
+
+  button:hover {
+    background-color: #d73200;
+  }
+
+  .activeLink {
+    text-decoration: underline;
+    color: #a22600;
   }
 `
 
