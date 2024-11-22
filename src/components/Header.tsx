@@ -1,13 +1,12 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import NavBar from "./NavBar";
+import ShoppingCartButton from "./ShoppingCartButton";
 import { StyledHeader } from "./styles/Header.styled";
-import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
 
 function Header() {
   return (<StyledHeader>
     <NavBar />
-    <button><FontAwesomeIcon icon={faCartShopping} /></button>
+    <ShoppingCartButton />
   </StyledHeader>);
 }
 
