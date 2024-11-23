@@ -5,6 +5,9 @@ import { useState } from 'react';
 import GlobalStyles from './components/styles/Global';
 import { Routes, Route } from 'react-router-dom';
 import ShoppingCart from './components/ShoppingCart';
+import Home from './pages/Home';
+import Store from './pages/Store';
+import About from './pages/About';
 
 const darkTheme = {
   primary: '#121212',
@@ -33,9 +36,9 @@ function App() {
       <Header />
       <Container>
         <Routes>
-          <Route path='/' element={<h1>HOME</h1>} />
-          <Route path='/store' element={<h1>STORE</h1>} />
-          <Route path='/about' element={<h1>ABOUT</h1>} />
+          <Route path='/' element={<Home />} />
+          <Route path='/store' element={<Store />} />
+          <Route path='/about' element={<About />} />
           <Route path='*' element={<h1>Not Found</h1>} />
         </Routes>
       </Container>
