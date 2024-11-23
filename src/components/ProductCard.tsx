@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { StyledProductCard } from "./styles/ProductCard.styled";
 import Product from "../types/Product";
+import { formatCurrency } from "../utils/formatCurrency";
 
 function ProductCard({ title, price, images }: Product) {
   const [itemsCount] = useState<number>(1);
@@ -19,7 +20,7 @@ function ProductCard({ title, price, images }: Product) {
       <img src={images[0]} alt={title} height="250px" />
     </div>
     <div className="body">
-      <span>{title}</span><span>{price}</span>
+      <span>{title}</span><span>{formatCurrency(price)}</span>
     </div>
     <div className="footer">
       {footerContent()}
