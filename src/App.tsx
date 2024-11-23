@@ -4,6 +4,7 @@ import { Container } from './components/styles/Container.styled';
 import { useState } from 'react';
 import GlobalStyles from './components/styles/Global';
 import { Routes, Route } from 'react-router-dom';
+import ShoppingCart from './components/ShoppingCart';
 
 const darkTheme = {
   primary: '#121212',
@@ -18,7 +19,9 @@ const lightTheme = {
 }
 
 function App() {
+  const [showShoppingCart] = useState(false);
   const [darkMode] = useState(false);
+
   let theme = lightTheme;
 
   if (darkMode)
@@ -36,6 +39,7 @@ function App() {
           <Route path='*' element={<h1>Not Found</h1>} />
         </Routes>
       </Container>
+      {showShoppingCart && <ShoppingCart />}
     </ThemeProvider>
   )
 }
