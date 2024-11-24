@@ -6,6 +6,7 @@ export const StyledShoppingCartButton = styled.button`
   color: #ff3d00;
   border: 1px solid #ff3d00;
   border-radius: 50%;
+  height: 40px;
   &:hover {
     color: #fff;
     border-color: #fff;
@@ -17,5 +18,6 @@ export const StyledShoppingCartButton = styled.button`
     border-radius: 50%;
     padding: 0 3px;
     left: 30px;
+    width: 20px;
   }
 `
