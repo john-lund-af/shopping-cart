@@ -1,5 +1,9 @@
+import { StyledHome } from "../components/styles/Home.styled";
+
 function Home() {
-  return <div><h1>Home</h1></div>;
+  return (<StyledHome>
+    <h1>Beauty Products AB</h1>
+  </StyledHome>);
 }
 
 export default Home;
