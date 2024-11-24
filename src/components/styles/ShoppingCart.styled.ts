@@ -2,7 +2,7 @@ import { styled } from 'styled-components';
 
 export const StyledShoppingCart = styled.div`
   height: 100%;
-  width: 50%;
+  width: 75%;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -19,5 +19,11 @@ export const StyledShoppingCart = styled.div`
     display: flex;
     flex-direction: column;
     gap: 1rem;
+  }
+  @media (min-width: 600px) {
+    width: 50%;
+  }
+  @media (min-width: 1200px) {
+    width: 25%;
   }
 `;
