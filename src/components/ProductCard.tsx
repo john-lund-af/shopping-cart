@@ -1,18 +1,29 @@
-import { useState } from "react";
+import { useContext } from "react";
 import { StyledProductCard } from "./styles/ProductCard.styled";
 import Product from "../types/Product";
 import { formatCurrency } from "../utils/formatCurrency";
+import ShoppingCartContext from "../context/ShoppingCartContext";
+import { ActionType } from "../types/ActionTypes";
 
-function ProductCard({ title, price, images }: Product) {
-  const [itemsCount] = useState<number>(1);
+function ProductCard({ id, title, price, images }: Product) {
+  const { state, dispatch } = useContext(ShoppingCartContext);
+
+  const quantity = state.find(item => item.id === id)?.quantity || 0;
 
   const footerContent = () => {
-    if (itemsCount === 0)
-      return <button className="big-btn">+ Add to Cart</button>;
-    return (<div className="small-btns">
-      <div><button>-</button>&nbsp;<span><span>{itemsCount}</span>&nbsp;in cart</span>&nbsp;<button>+</button></div>
-      <div><button>Remove</button></div>
-    </div>);
+    if (quantity > 0) {
+      return (<div className="small-btns">
+        <div>
+          <button onClick={() => quantity > 1 ? dispatch({ actionType: ActionType.DECREASE, itemId: id }) : dispatch({ actionType: ActionType.REMOVE, itemId: id })}>-</button>
+          &nbsp;<span><span><strong>{quantity}</strong></span>&nbsp;in cart</span>
+          &nbsp;<button onClick={() => dispatch({ actionType: ActionType.INCREASE, itemId: id })}>+</button>
+        </div>
+        <div>
+          <button onClick={() => dispatch({ actionType: ActionType.REMOVE, itemId: id })}>Remove</button>
+        </div>
+      </div>);
+    }
+    return <button onClick={() => dispatch({ actionType: ActionType.INCREASE, itemId: id })} className="big-btn">+ Add to Cart</button>;
   }
 
   return <StyledProductCard>
