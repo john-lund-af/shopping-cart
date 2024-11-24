@@ -8,6 +8,7 @@ import ShoppingCart from './components/ShoppingCart';
 import Home from './pages/Home';
 import Store from './pages/Store';
 import About from './pages/About';
+import ShoppingCartContextProvider from './context/ShoppingCartContextProvider';
 
 const darkTheme = {
   primary: '#121212',
@@ -23,7 +24,7 @@ const lightTheme = {
 
 function App() {
   const [showShoppingCart] = useState(false);
-  const [darkMode] = useState(false);
+  const [darkMode] = useState(true);
 
   let theme = lightTheme;
 
@@ -32,17 +33,19 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <GlobalStyles />
-      <Header />
-      <Container>
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/store' element={<Store />} />
-          <Route path='/about' element={<About />} />
-          <Route path='*' element={<h1>Not Found</h1>} />
-        </Routes>
-      </Container>
-      {showShoppingCart && <ShoppingCart />}
+      <ShoppingCartContextProvider>
+        <GlobalStyles />
+        <Header />
+        <Container>
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/store' element={<Store />} />
+            <Route path='/about' element={<About />} />
+            <Route path='*' element={<h1>Not Found</h1>} />
+          </Routes>
+        </Container>
+        {showShoppingCart && <ShoppingCart />}
+      </ShoppingCartContextProvider>
     </ThemeProvider>
   )
 }
