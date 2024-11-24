@@ -1,7 +1,7 @@
 import { ThemeProvider } from 'styled-components';
 import Header from './components/Header';
 import { Container } from './components/styles/Container.styled';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import GlobalStyles from './components/styles/Global';
 import { Routes, Route } from 'react-router-dom';
 import ShoppingCart from './components/ShoppingCart';
