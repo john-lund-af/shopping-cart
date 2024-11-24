@@ -14,6 +14,7 @@ export const StyledShoppingCart = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-bottom: 1rem;
   }
   #listItems {
     display: flex;

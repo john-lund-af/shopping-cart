@@ -5,7 +5,8 @@ export const StyledShoppingCartItem = styled.div`
   flex-direction: column;
   gap: 0.5rem;
   align-items: center;
-  background-color: gray;
+  background-color: #aaaaaa;
+  padding: 1rem;
   h3 {
     text-align: center;
   }
