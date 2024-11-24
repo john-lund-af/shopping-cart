@@ -26,7 +26,7 @@ const GlobalStyles = createGlobalStyle`
     min-height: 100vh;
   }
 
-  h1 {
+  h1, h2, h3 {
     font-family: "Merryweather", serif;
     font-style: normal;
     font-weight: 400;

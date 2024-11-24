@@ -8,7 +8,7 @@ export const StyledShoppingCart = styled.div`
   top: 0;
   right: 0;
   padding: 0.5rem;
-  background-color: #000;
+  background-color: ${({ theme }) => theme.primary};
   overflow-x: hidden;
   .header {
     display: flex;
@@ -20,6 +20,10 @@ export const StyledShoppingCart = styled.div`
     display: flex;
     flex-direction: column;
     gap: 1rem;
+  }
+  #total {
+    text-align: right;
+    padding: 0.5rem;
   }
   @media (min-width: 600px) {
     width: 50%;

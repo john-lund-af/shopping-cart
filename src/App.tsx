@@ -25,7 +25,7 @@ const lightTheme = {
 function App() {
   const { isCartOpen } = useContext(ShoppingCartContext);
 
-  const [darkMode] = useState(true);
+  const [darkMode] = useState(false);
 
   let theme = lightTheme;
 
