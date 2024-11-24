@@ -1,11 +1,32 @@
 import { createPortal } from "react-dom";
 import { StyledShoppingCart } from "./styles/ShoppingCart.styled";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import ShoppingCartContext from '../context/ShoppingCartContext';
+import axios from 'axios';
+import ShoppingCartItem from "./ShoppingCartItem";
+import ShoppingCartItemType from "../types/ShoppingCartItemType";
 
 function ShoppingCart() {
   const modalElement = document.getElementById("modal")!;
-  const { setIsCartOpen } = useContext(ShoppingCartContext);
+  const { state, setIsCartOpen } = useContext(ShoppingCartContext);
+  const [productsState, setProductsState] = useState<ShoppingCartItemType[]>([]);
+
+  useEffect(() => {
+    async function fetchProducts() {
+      const fetchedProducts: ShoppingCartItemType[] = [];
+      try {
+        for (const cartItem of state) {
+          const response = await axios.get(`https://dummyjson.com/products/${cartItem.id}`);
+          fetchedProducts.push({ ...response.data, quantity: cartItem.quantity });
+        }
+        setProductsState(fetchedProducts);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    fetchProducts();
+  }, [state])
 
   return createPortal(<StyledShoppingCart>
     <header className="header">
@@ -15,7 +36,7 @@ function ShoppingCart() {
       <div><button onClick={() => setIsCartOpen(false)}>X</button></div>
     </header>
     <main>
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum similique necessitatibus commodi, omnis praesentium aperiam voluptate nobis nam doloremque minus natus voluptates nesciunt labore, eligendi eveniet? Quaerat beatae dolorem vel.
+      <div id="listItems">{productsState.map(item => <ShoppingCartItem {...item} key={item.id} />)}</div>
     </main>
   </StyledShoppingCart>, modalElement);
 }

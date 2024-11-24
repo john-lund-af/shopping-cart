@@ -1,6 +1,6 @@
 import React from 'react';
 import { Action } from "../types/ActionTypes";
-import ShoppingCartItem from '../types/ShoppingCartItem';
+import ShoppingCartItem from '../types/ShoppingCartItemType';
 
 type ShoppingCartContextType = {
   state: ShoppingCartItem[],

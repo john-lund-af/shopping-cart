@@ -1,6 +1,6 @@
 import { ReactNode, useReducer, useState } from "react"
 import ShoppingCartContext from "./ShoppingCartContext"
-import ShoppingCartItem from '../types/ShoppingCartItem';
+import ShoppingCartItem from '../types/ShoppingCartItemType';
 import { Action, ActionType } from "../types/ActionTypes";
 
 type ShoppingCartContextProviderProps = {
