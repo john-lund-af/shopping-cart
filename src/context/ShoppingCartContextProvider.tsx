@@ -1,4 +1,4 @@
-import { ReactNode, useReducer } from "react"
+import { ReactNode, useReducer, useState } from "react"
 import ShoppingCartContext from "./ShoppingCartContext"
 import ShoppingCartItem from '../types/ShoppingCartItem';
 import { Action, ActionType } from "../types/ActionTypes";
@@ -25,10 +25,12 @@ function reducer(state: ShoppingCartItem[], action: Action): ShoppingCartItem[] 
   return state;
 }
 
+
 const ShoppingCartContextProvider = ({ children }: ShoppingCartContextProviderProps) => {
   const [state, dispatch] = useReducer(reducer, []);
+  const [isCartOpen, setIsCartOpen] = useState<boolean>(false);
 
-  return <ShoppingCartContext.Provider value={{ state, dispatch }}>{children}</ShoppingCartContext.Provider>
+  return <ShoppingCartContext.Provider value={{ state, dispatch, isCartOpen, setIsCartOpen }}>{children}</ShoppingCartContext.Provider>
 }
 
 export default ShoppingCartContextProvider;
