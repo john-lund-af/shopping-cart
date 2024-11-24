@@ -9,7 +9,7 @@ function ShoppingCartItem({ id, title, thumbnail, price, quantity }: ShoppingCar
   const { dispatch } = useContext(ShoppingCartContext);
 
   return <StyledShoppingCartItem>
-    <h3>{title}</h3>
+    <h3>{title} <span style={{ color: 'green' }}>x{quantity}</span></h3>
     <img src={thumbnail} alt={title} height="50px" />
     <div>
       <span>{formatCurrency(price! * quantity)}</span>&nbsp;<button onClick={() => dispatch({ actionType: ActionType.REMOVE, itemId: id })}>X</button>
